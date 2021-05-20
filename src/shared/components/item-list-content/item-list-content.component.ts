@@ -8,6 +8,8 @@ import { ActionSheetController, AlertController } from '@ionic/angular';
   styleUrls: ['./item-list-content.component.scss'],
 })
 export class ItemListContentComponent implements OnInit {
+  @Input() title: string;
+  @Input() subtitle: string;
   @Input() dataSource: any[];
   @Output() deleted: EventEmitter<any> = new EventEmitter();
   @Output() refresh: EventEmitter<any> = new EventEmitter();
@@ -17,7 +19,6 @@ export class ItemListContentComponent implements OnInit {
   ngOnInit(): void {}
 
   async presentActionSheet(id: number) {
-    console.log(id);
     const actionSheet = await this.actionSheetController.create({
       header: 'Ações',
       cssClass: 'my-custom-class',

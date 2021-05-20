@@ -7,8 +7,8 @@
   <ion-list class="content">
     <ion-item *ngFor="let item of dataSource" (click)="presentActionSheet(item.id)">
       <ion-label>
-        <h2>{{item.name}}</h2>
-        <h3>{{item.email}}</h3>
+        <h2>{{item[title]}}</h2>
+        <h3>{{item[subtitle]}}</h3>
       </ion-label>
       <ion-checkbox style="display: none;" slot="start"></ion-checkbox>
     </ion-item>

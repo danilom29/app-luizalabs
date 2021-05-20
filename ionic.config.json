@@ -1,5 +1,7 @@
 {
   "name": "app-luizalabs",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

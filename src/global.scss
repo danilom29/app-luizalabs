@@ -24,3 +24,19 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.content-form {
+  padding: 2em;
+}
+
+.action{
+  margin-top: 2em;
+  ion-button{
+    margin-bottom: 1em;
+  }
+}
+
+.error{
+  font-size: 12px;
+  color: red;
+}

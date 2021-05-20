@@ -1,0 +1,18 @@
+<app-luizalabs-item-list-header [title]="'Clientes'"></app-luizalabs-item-list-header>
+
+<ion-content fullscreen>
+  <ion-refresher slot="fixed" (ionRefresh)="refresh.emit($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list class="content">
+    <ion-item *ngFor="let item of dataSource" (click)="presentActionSheet(item.id)">
+      <ion-label>
+        <h2>{{item.name}}</h2>
+        <h3>{{item.email}}</h3>
+      </ion-label>
+      <ion-checkbox style="display: none;" slot="start"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<app-luizalabs-item-list-footer> </app-luizalabs-item-list-footer>

@@ -1,0 +1,37 @@
+<ion-card class="example-item-detail">
+  <!-- <ion-menu #menu="matMenu">
+    <ion-button ion-menu-item routerLink="editar/{{ id }}">
+      <mat-icon>edit</mat-icon>
+      Editar
+    </ion-button>
+    <ion-button ion-menu-item (click)="handleDelete(id)">
+      <mat-icon>delete</mat-icon>
+      Excluir
+    </ion-button>
+  </ion-menu> -->
+  <ion-card-header>
+    <button mat-icon-button class="options-btn">
+      <ion-icon>more_vert</ion-icon>
+    </button>
+  </ion-card-header>
+
+  <ion-card-content class="content-item-card">
+    <section class="box-1">
+      <ion-checkbox
+        (click)="$event.stopPropagation()"
+        (change)="selected.emit(id)"
+      >
+      </ion-checkbox>
+    </section>
+    <section class="box-2">
+      <ion-card-title>
+        <span *ngIf="title" class="span-ellipsis-rows">{{ title }}</span>
+      </ion-card-title>
+      <ion-card-subtitle class="subtitle" *ngIf="subtitle">
+        <span class="span-ellipsis-one">
+          {{ subtitle }}
+        </span>
+      </ion-card-subtitle>
+    </section>
+  </ion-card-content>
+</ion-card>

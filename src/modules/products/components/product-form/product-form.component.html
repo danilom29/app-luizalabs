@@ -1,0 +1,52 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start" [routerLink]="'/produtos'">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title>{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <form [formGroup]="form" class="content-form">
+    <ion-item appearance="legacy">
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input name="name" type="text" formControlName="name" placeholder="Nome"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="form.get('name').touched && form.get('name').errors?.required">
+      Campo obrigatório
+    </span>
+
+    <ion-item appearance="legacy">
+      <ion-label position="floating">Tamanho</ion-label>
+      <ion-input type="text" formControlName="size" placeholder="Tamanho"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="form.get('size').touched && form.get('size').errors?.required">
+      Campo obrigatório
+    </span>
+
+    <ion-item appearance="legacy">
+      <ion-label position="floating">Valor</ion-label>
+      <ion-input type="text" formControlName="value"  [brmasker]="{mask: '000.000.000-00', type:'num', len: 14}" placeholder="Valor"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="form.get('value').touched && form.get('value').errors?.required">
+      Campo obrigatório
+    </span>
+
+    <ion-item appearance="legacy">
+      <ion-label position="floating">Fabricação</ion-label>
+      <ion-select formControlName="origin" placeholder="Fabricação">
+        <ion-select-option value="Importado"> Importado </ion-select-option>
+        <ion-select-option value="Nacional"> Nacional </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="form.get('origin').touched && form.get('origin').errors?.required">
+      Campo obrigatório
+    </span>
+
+    <div class="action">
+      <ion-button [disabled]="form.invalid" (click)="handleSaveOrUpdate()" expand="block">Slavar</ion-button>
+      <ion-button expand="block" color="light" routerLink="/produtos">Cancelar</ion-button>
+    </div>
+  </form>
+</ion-content>

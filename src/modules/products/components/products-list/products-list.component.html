@@ -1,0 +1,10 @@
+<app-luizalabs-item-list-content
+  *ngIf="products"
+  [dataSource]="products"
+  title="name"
+  subtitle="origin"
+  route="produtos"
+  titleHeader="Produtos"
+  (deleted)="deleted($event)"
+  (refresh)="getProducts($event)">
+</app-luizalabs-item-list-content>

@@ -21,9 +21,6 @@ export class ClientFormComponent implements OnInit {
       gender: new FormControl('', [Validators.required]),
       cpf: new FormControl('', [Validators.required, ValidateCpf]),
     });
-    this.form.get('cpf').valueChanges.subscribe(() => {
-      console.log(this.form.get('cpf').errors);
-    });
   }
 
   ngOnInit(): void {

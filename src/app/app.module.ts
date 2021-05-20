@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { ClientsModule } from '../modules/clients/clients.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ProductsModule } from 'src/modules/products/products.module';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -19,6 +20,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     AppRoutingModule,
     SharedModule,
     ClientsModule,
+    ProductsModule,
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

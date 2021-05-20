@@ -10,6 +10,8 @@ import { ActionSheetController, AlertController } from '@ionic/angular';
 export class ItemListContentComponent implements OnInit {
   @Input() title: string;
   @Input() subtitle: string;
+  @Input() route: string;
+  @Input() titleHeader: string;
   @Input() dataSource: any[];
   @Output() deleted: EventEmitter<any> = new EventEmitter();
   @Output() refresh: EventEmitter<any> = new EventEmitter();
@@ -33,21 +35,18 @@ export class ItemListContentComponent implements OnInit {
         text: 'Editar',
         icon: 'pencil-outline',
         handler: () => {
-          this.router.navigateByUrl('editar/:' + id);
+          this.router.navigateByUrl(this.route + '/editar/:' + id);
         }
       }, {
         text: 'Cancel',
         icon: 'close',
         role: 'cancel',
-        handler: () => {
-          console.log('Cancel clicked');
-        }
+        handler: () => {}
       }]
     });
     await actionSheet.present();
 
     const { role } = await actionSheet.onDidDismiss();
-    console.log('onDidDismiss resolved with role', role);
   }
 
   async handleDelete(id: number): Promise<void> {

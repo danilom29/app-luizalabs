@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('../modules/clients/clients.module').then((m) => m.ClientsModule),
   },
   {
+    path: 'produtos',
+    loadChildren: () => import('../modules/products/products.module').then((m) => m.ProductsModule),
+  },
+  {
     path: '',
     redirectTo: 'clientes',
     pathMatch: 'full',
@@ -15,7 +19,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules, enableTracing: true })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
   exports: [RouterModule]
 })
